@@ -1,0 +1,41 @@
+# The New School IRL Web App Homescreen
+
+We will build the landing page (homescreen) for the "New School IRL" application based on the provided mobile wireframes. The goal is to produce a beautiful, modern, high-quality mobile-web experience that uses HTML, Vanilla CSS, and JavaScript.
+
+## Proposed Changes
+
+### Core Structure
+#### [NEW] index.html
+The main HTML file will contain the semantic structure for the app:
+- **Header**: Top app bar reflecting "THE NEW SCHOOL IRL" branding and a top-right messaging (envelope) icon.
+- **Main Scrollable Content**:
+  - `Quick Links`: A section with prominent buttons for "Find Club", "Browse Classes", and "Create Events".
+  - `Happening Today`: A vertical list of upcoming events. Each event card will include event details, location, time, and an image placeholder (using a sleek gradient or generic image until real data is available).
+  - `Your Classes`: A list representation of scheduled classes with times and room numbers.
+  - `Your Clubs`: A similar list block outlining club meetings.
+- **Bottom Navigation**: Fixed bar at the bottom with 5 action icons (Home, Messages/Chat, Search, Calendar, Profile).
+
+#### [NEW] styles.css
+We will use modern Vanilla CSS to provide an exceptional visual experience:
+- **Rich Aesthetics**: Vibrant yet brand-consistent colors (New School Red, True Black, Crisp White, Light Gray background for contrast).
+- **Typography**: Modern sans-serif font family (Inter or Roboto) for clean legibility.
+- **Component Styling**: 
+  - Glassmorphic or softly shadowed white cards for list items.
+  - Smooth micro-animations on interactive elements (buttons, bottom nav icons, and cards).
+  - Elegant layout pacing (padding, margin, flexbox/grid alignments).
+- **Responsiveness**: Ensure a mobile-first approach where the body content resembles the form factor shown in the wireframes but works gracefully across different mobile screens.
+
+#### [NEW] app.js
+A lightweight JavaScript file to toggle active states on the Bottom Navigation and handle any smooth-scrolling or subtle interactions.
+
+## Verification Plan
+
+### Automated Tests
+*None for this static UI layout phase.*
+
+### Manual Verification
+1. Open `index.html` in a local browser.
+2. Inspect the layout using Developer Tools with a Mobile Device Simulator (e.g., iPhone 16 Plus or similar width).
+3. Verify that all elements from the wireframe (Header, Quick Links, Happening Today, Your Classes, Your Clubs, Bottom Nav) are perfectly represented.
+4. Interact with the buttons and navigation icons to ensure micro-animations (e.g., hover/click scale and color shifts) are active and feel premium.
+5. Visually confirm the design feels top-tier, polished, and avoids simple MVP aesthetics.

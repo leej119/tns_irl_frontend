@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Browse Classes</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-box">
+                <span class="logo-tns">THE NEW SCHOOL</span>
+                <span class="logo-irl">IRL</span>
+            </div>
+            <button class="icon-btn" aria-label="Messages" onclick="window.location.href='messages.html'">
+                <i class="ph ph-envelope-simple"></i>
+            </button>
+        </header>
+
+        <!-- Main Content Scrollable -->
+        <main class="content-scroll">
+            <!-- Course Catalog Header -->
+            <h1 class="page-title-massive text-red text-center"
+                style="margin-top: 10px; font-size: 2.2rem; letter-spacing: 0px;">COURSE CATALOG</h1>
+            <p class="text-center" style="font-size: 0.8rem; font-weight: 700; margin-bottom: 20px;">
+                <i class="ph-fill ph-question-circle" style="color: var(--color-red);"></i> About the Course Catalog
+            </p>
+
+            <!-- Search Area -->
+            <div class="catalog-search-container">
+                <input type="text" class="catalog-search-input" value="thesis writing" placeholder="Search courses...">
+                <div class="catalog-search-actions">
+                    <button class="refine-btn">Refine By... <i class="ph ph-caret-down"></i></button>
+                    <button class="search-submit-btn"><i class="ph ph-magnifying-glass"></i></button>
+                </div>
+            </div>
+
+            <!-- Mobile Filter Summary -->
+            <div class="catalog-filter-summary">
+                <button class="show-filters-btn"><i class="ph-fill ph-folder"></i> Show Additional Filters</button>
+            </div>
+
+            <!-- Results Header -->
+            <div class="catalog-results-header">
+                <button class="reset-search-btn"><i class="ph ph-arrow-counter-clockwise"></i> Reset Search</button>
+                <div class="results-info">
+                    <span class="results-count">492 Courses Found</span>
+                    <button class="bookmark-btn"><i class="ph-fill ph-bookmark" style="color: var(--color-red);"></i>
+                        Bookmark This Search</button>
+                </div>
+            </div>
+
+            <!-- Course Cards List -->
+            <div class="course-list">
+
+                <!-- Card 1 -->
+                <div class="course-catalog-card">
+                    <div class="course-card-header">
+                        <span class="course-id">APFS5021</span>
+                        <a href="#" class="course-link-action"><i class="ph ph-arrow-square-out"></i> Course Page</a>
+                    </div>
+                    <h3 class="course-catalog-title">Advanced Thesis Preparation</h3>
+                    <div class="course-catalog-details">
+                        <div class="detail-item"><strong>Credits:</strong> 3</div>
+                        <div class="detail-item"><strong>College/School:</strong> Parsons Paris</div>
+                        <div class="detail-item"><strong>Department:</strong> Parsons Paris</div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="course-catalog-card">
+                    <div class="course-card-header">
+                        <span class="course-id">APVS4500</span>
+                        <a href="#" class="course-link-action"><i class="ph ph-arrow-square-out"></i> Course Page</a>
+                    </div>
+                    <h3 class="course-catalog-title">Advanced Research Seminar: Art, Media & Technology</h3>
+                    <div class="course-catalog-details">
+                        <div class="detail-item"><strong>Credits:</strong> 3</div>
+                        <div class="detail-item"><strong>College/School:</strong> Parsons Paris</div>
+                        <div class="detail-item"><strong>Department:</strong> Parsons Paris</div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="course-catalog-card">
+                    <div class="course-card-header">
+                        <span class="course-id">GPOL7004</span>
+                        <a href="#" class="course-link-action"><i class="ph ph-arrow-square-out"></i> Course Page</a>
+                    </div>
+                    <h3 class="course-catalog-title">Political Research Seminar</h3>
+                    <div class="course-catalog-details">
+                        <div class="detail-item"><strong>Credits:</strong> 0 TO 1.5</div>
+                        <div class="detail-item"><strong>College/School:</strong> New School for Social Research</div>
+                        <div class="detail-item"><strong>Department:</strong> Politics</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom-spacer"></div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item tab-nav" aria-label="Home">
+                <i class="ph ph-house"></i>
+            </a>
+            <a href="messages.html" class="nav-item tab-nav" aria-label="Chat">
+                <i class="ph ph-chat-circle"></i>
+            </a>
+            <a href="#" class="nav-item tab-nav" aria-label="Search">
+                <i class="ph ph-magnifying-glass"></i>
+            </a>
+            <a href="your_clubs.html" class="nav-item tab-nav" aria-label="Calendar">
+                <i class="ph ph-calendar-blank"></i>
+            </a>
+            <a href="edit_profile.html" class="nav-item tab-nav" aria-label="Profile">
+                <i class="ph ph-user"></i>
+            </a>
+        </nav>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

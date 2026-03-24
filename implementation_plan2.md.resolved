@@ -1,0 +1,36 @@
+# The New School IRL Web App - Additional Pages
+
+We will update the application structure to reflect the new designs provided, incorporating the tabbar navigation and adding the new requested pages for "FIND CLUB" and "BROWSE CLASSES".
+
+## Proposed Changes
+
+### [MODIFY] index.html & styles.css
+- **Quick Links UI Update**: Transform the vertical "Quick Links" buttons into a clean, horizontal tab bar (FIND CLUB | BROWSE CLASSES | CREATE EVENTS) with an active state underline (red), matching `iPhone 16 Plus - 8`.
+- Apply micro-interactions to these tabs.
+
+### [NEW] find_club.html
+When a user taps the "FIND CLUB" tab, they will navigate to this new page, which is focused on upcoming events and calendars (matching the CALENDAR screen wireframes `18`/`19`/`20`).
+- **Header**: "CALENDAR" text.
+- **Content**: 
+  - `Upcoming Sessions` list (events like "Design wireframes", "Eat donuts").
+  - `Your Events` calendar section (showing a monthly date picker with active red dates).
+  - Add "+ Add new" small red action links above lists.
+
+### [NEW] browse_classes.html
+When a user taps the "BROWSE CLASSES" tab, they will navigate to this page, focusing on class details and activities (matching the `LCOD-3010` screen wireframe `14`).
+- **Header**: "LCOD-3010" text (in red).
+- **Content**:
+  - `Upcoming Sessions` list for the class.
+  - `Your Classes Activities` mini-calendar/timeline.
+  - `Last Messages in Chat Room` list item showing recent chats.
+
+### [MODIFY] app.js
+- Include logic across pages for the bottom navigation bar active states depending on the URL.
+- Basic navigation hooks for the new Quick Link horizontal tabs.
+
+## Verification Plan
+
+### Manual Verification
+1. Navigate between [index.html](file:///Users/ijuyeon/Desktop/tns_irl_draft2/index.html), `find_club.html`, and `browse_classes.html` by clicking the Quick Link tabs.
+2. Confirm that the UI of the Quick Links is horizontal and clearly indicates an active state on each associated page.
+3. Validate that the new list formats (Upcoming Sessions, Chat Messages) and the custom calendar view appear visually polished.

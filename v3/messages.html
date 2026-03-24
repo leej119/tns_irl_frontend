@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Messages</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-box">
+                <span class="logo-tns">THE NEW SCHOOL</span>
+                <span class="logo-irl">IRL</span>
+            </div>
+            <button class="icon-btn" aria-label="Messages" onclick="window.location.href='messages.html'">
+                <i class="ph ph-envelope-simple"></i>
+            </button>
+        </header>
+
+        <!-- Main Content Scrollable -->
+        <main class="content-scroll">
+            <h1 class="page-header text-red text-center" style="margin-bottom: var(--spacing-sm);">MESSAGES</h1>
+            <h2 class="section-title" style="font-size: 1rem; margin-bottom: var(--spacing-md);">Messages</h2>
+
+            <div class="messages-list">
+
+                <!-- Chat Item 1 -->
+                <div class="message-card">
+                    <div class="message-avatar"></div>
+                    <div class="message-info">
+                        <h3 class="message-name">Tsunemasa Fujiwara</h3>
+                        <p class="message-time">Sent 2h ago</p>
+                    </div>
+                    <!-- Three dot wrapper for relative positioning of the dropdown -->
+                    <div class="message-action-wrapper">
+                        <button class="more-options-btn"><i class="ph-bold ph-dots-three"></i></button>
+                        <!-- Dropdown Menu -->
+                        <div class="action-dropdown hidden">
+                            <button class="dropdown-item"><i class="ph ph-user-circle"></i> Profile</button>
+                            <button class="dropdown-item text-red"
+                                onclick="window.location.href='report_reason.html'"><i class="ph ph-warning-circle"></i>
+                                Report</button>
+                            <button class="dropdown-item text-red"><i class="ph ph-prohibit"></i> Block</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Item 2 -->
+                <div class="message-card">
+                    <div class="message-avatar"></div>
+                    <div class="message-info">
+                        <h3 class="message-name">Akshi Maiti</h3>
+                        <p class="message-time">Sent 5h ago</p>
+                    </div>
+                    <div class="message-action-wrapper">
+                        <button class="more-options-btn"><i class="ph-bold ph-dots-three"></i></button>
+                        <div class="action-dropdown hidden">
+                            <button class="dropdown-item"><i class="ph ph-user-circle"></i> Profile</button>
+                            <button class="dropdown-item text-red"
+                                onclick="window.location.href='report_reason.html'"><i class="ph ph-warning-circle"></i>
+                                Report</button>
+                            <button class="dropdown-item text-red"><i class="ph ph-prohibit"></i> Block</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Item 3 -->
+                <div class="message-card">
+                    <div class="message-avatar"></div>
+                    <div class="message-info">
+                        <h3 class="message-name">Ronish Sharma</h3>
+                        <p class="message-time">Sent 10h ago</p>
+                    </div>
+                    <div class="message-action-wrapper">
+                        <button class="more-options-btn"><i class="ph-bold ph-dots-three"></i></button>
+                        <div class="action-dropdown hidden">
+                            <button class="dropdown-item"><i class="ph ph-user-circle"></i> Profile</button>
+                            <button class="dropdown-item text-red"
+                                onclick="window.location.href='report_reason.html'"><i class="ph ph-warning-circle"></i>
+                                Report</button>
+                            <button class="dropdown-item text-red"><i class="ph ph-prohibit"></i> Block</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Item 4 -->
+                <div class="message-card">
+                    <div class="message-avatar"></div>
+                    <div class="message-info">
+                        <h3 class="message-name">Carla Budar</h3>
+                        <p class="message-time" style="color: var(--color-grey-dark);">Seen just now</p>
+                    </div>
+                    <div class="message-action-wrapper">
+                        <button class="more-options-btn"><i class="ph-bold ph-dots-three"></i></button>
+                        <div class="action-dropdown hidden">
+                            <button class="dropdown-item"><i class="ph ph-user-circle"></i> Profile</button>
+                            <button class="dropdown-item text-red"
+                                onclick="window.location.href='report_reason.html'"><i class="ph ph-warning-circle"></i>
+                                Report</button>
+                            <button class="dropdown-item text-red"><i class="ph ph-prohibit"></i> Block</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom-spacer"></div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item tab-nav" aria-label="Home">
+                <i class="ph ph-house"></i>
+            </a>
+            <a href="messages.html" class="nav-item active tab-nav" aria-label="Chat">
+                <i class="ph ph-chat-circle"></i>
+            </a>
+            <a href="#" class="nav-item tab-nav" aria-label="Search">
+                <i class="ph ph-magnifying-glass"></i>
+            </a>
+            <a href="your_clubs.html" class="nav-item tab-nav" aria-label="Calendar">
+                <i class="ph ph-calendar-blank"></i>
+            </a>
+            <a href="edit_profile.html" class="nav-item tab-nav" aria-label="Profile">
+                <i class="ph ph-user"></i>
+            </a>
+        </nav>
+
+    </div>
+
+    <!-- The overlay to catch outside clicks and close the dropdown -->
+    <div id="dropdown-overlay" class="hidden"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>

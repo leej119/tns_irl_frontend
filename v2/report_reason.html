@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Report</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-box">
+                <span class="logo-tns">THE NEW SCHOOL</span>
+                <span class="logo-irl">IRL</span>
+            </div>
+            <button class="icon-btn" aria-label="Messages" onclick="window.location.href='messages.html'">
+                <i class="ph ph-envelope-simple"></i>
+            </button>
+        </header>
+
+        <!-- Main Content Scrollable -->
+        <main class="content-scroll flex-col scroll-y-visible">
+            <div class="report-header-text">
+                <h1 class="page-header text-red text-center" style="margin-bottom: var(--spacing-sm);">Report</h1>
+                <h2 class="section-title" style="font-size: 1.1rem; margin-bottom: 4px;">Why are you reporting this
+                    account?</h2>
+                <p class="report-subtitle">Your report is anonymous, feel free to contact us if there are any issues -
+                    don't wait!</p>
+            </div>
+
+            <form id="report-form" class="report-form" action="report_reviewing.html">
+
+                <label class="radio-option">
+                    <span class="radio-label">Harassment or bullying</span>
+                    <input type="radio" name="report_reason" value="harassment" required>
+                    <span class="custom-radio"></span>
+                </label>
+
+                <label class="radio-option">
+                    <span class="radio-label">May not be from this school</span>
+                    <input type="radio" name="report_reason" value="not_from_school">
+                    <span class="custom-radio"></span>
+                </label>
+
+                <label class="radio-option">
+                    <span class="radio-label">Violence or threat of violence</span>
+                    <input type="radio" name="report_reason" value="violence">
+                    <span class="custom-radio"></span>
+                </label>
+
+                <label class="radio-option">
+                    <span class="radio-label">Hate speech or symbols</span>
+                    <input type="radio" name="report_reason" value="hate_speech">
+                    <span class="custom-radio"></span>
+                </label>
+
+                <label class="radio-option">
+                    <span class="radio-label">Pretending to be someone else</span>
+                    <input type="radio" name="report_reason" value="impersonation">
+                    <span class="custom-radio"></span>
+                </label>
+
+                <label class="radio-option">
+                    <span class="radio-label">Account been hacked</span>
+                    <input type="radio" name="report_reason" value="hacked">
+                    <span class="custom-radio"></span>
+                </label>
+
+                <label class="radio-option" id="label-other">
+                    <span class="radio-label">Other</span>
+                    <input type="radio" name="report_reason" value="other" id="radio-other">
+                    <span class="custom-radio"></span>
+                </label>
+
+                <!-- Dynamic text input for 'Other' -->
+                <div id="other-input-container" class="hidden">
+                    <textarea class="other-textarea" placeholder="Please specify the reason..." rows="3"></textarea>
+                </div>
+
+                <div class="report-footer">
+                    <button type="submit" class="primary-btn-red">NEXT</button>
+                </div>
+            </form>
+
+            <div class="bottom-spacer" style="height: 100px;"></div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item tab-nav" aria-label="Home">
+                <i class="ph ph-house"></i>
+            </a>
+            <a href="messages.html" class="nav-item active tab-nav" aria-label="Chat">
+                <i class="ph ph-chat-circle"></i>
+            </a>
+            <a href="#" class="nav-item tab-nav" aria-label="Search">
+                <i class="ph ph-magnifying-glass"></i>
+            </a>
+            <a href="your_clubs.html" class="nav-item tab-nav" aria-label="Calendar">
+                <i class="ph ph-calendar-blank"></i>
+            </a>
+            <a href="#" class="nav-item tab-nav" aria-label="Profile">
+                <i class="ph ph-user"></i>
+            </a>
+        </nav>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
