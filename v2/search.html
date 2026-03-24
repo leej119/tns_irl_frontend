@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Explore</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-box">
+                <span class="logo-tns">THE NEW SCHOOL</span>
+                <span class="logo-irl">IRL</span>
+            </div>
+            <button class="icon-btn" aria-label="Messages" onclick="window.location.href='messages.html'">
+                <i class="ph ph-envelope-simple"></i>
+            </button>
+        </header>
+
+        <!-- Main Content Scrollable -->
+        <main class="content-scroll bg-white" style="padding: 0;">
+            
+            <!-- Hero Banner -->
+            <div class="event-hero-banner">
+                <div class="hero-top-bar">
+                    <div class="hero-left-info text-red">
+                        <p class="font-bold" style="font-weight: 800;">Starr Foundation Hall</p>
+                        <p class="font-bold" style="font-weight: 800;">63 5th Ave</p>
+                    </div>
+                    <div class="hero-right-info text-red" style="text-align: right;">
+                        <p class="font-bold" style="font-weight: 800;">FEBRUARY 12</p>
+                        <p class="font-bold" style="font-weight: 800;">6-8PM</p>
+                    </div>
+                    <button class="hero-close-btn" onclick="window.history.back()"><i class="ph-fill ph-x-circle text-black" style="color: black;"></i></button>
+                </div>
+
+                <h1 class="hero-massive-title text-red">Heels on the ground: a look at fashion and sustainability's future</h1>
+
+                <div class="hero-bottom-bar">
+                    <div class="hero-moderators">
+                        <p class="mod-title" style="font-weight: 600;">Moderators</p>
+                        <div class="mod-list">
+                            <div class="mod-person">
+                                <span class="mod-name">Tiffany Pek</span>
+                                <span class="mod-role">PART-TIME FACULTY - PARSONS</span>
+                            </div>
+                            <div class="mod-person">
+                                <span class="mod-name">Devon Rufo</span>
+                                <span class="mod-role">PARTNER - REFRAME PARTNERS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-arrow">
+                        <i class="ph ph-arrow-up-right text-red" style="stroke-width: 20px;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Strip Carousel -->
+            <div class="hero-image-strip">
+                <div class="speaker-img placeholder-img-2"></div>
+                <div class="speaker-img placeholder-img-2"></div>
+                <div class="speaker-img placeholder-img-2"></div>
+                <div class="speaker-img placeholder-img-2"></div>
+                <div class="carousel-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <!-- Content details -->
+            <div class="event-details-content">
+                <h1 class="event-main-title">HEELS ON THE GROUND: A LOOK AT FASHION AND SUSTAINABILITY'S FUTURE</h1>
+
+                <div class="event-info-row border-bottom">
+                    <div class="info-label">Location</div>
+                    <div class="info-value">Starr Foundation Hall <i class="ph ph-arrow-up-right text-red" style="font-weight: bold;"></i></div>
+                </div>
+
+                <div class="event-info-row border-bottom">
+                    <div class="info-label">Date</div>
+                    <div class="info-value">February 12, 2026, 6:00PM to 8:00PM</div>
+                </div>
+
+                <div class="event-info-row">
+                    <div class="info-label">Description</div>
+                </div>
+                
+                <div class="event-description">
+                    <p>The fashion industry is navigating one of its most transformative periods in decades. From shifting definitions of sustainability to the disruptive rise of artificial intelligence, the rules that once guided fashion's relationship with people and the planet are rapidly evolving.</p>
+                    <p>This conversation brings together industry veterans and innovators who are directly shaping the intersection of fashion, sustainability, and technology. Together, they will...</p>
+                </div>
+            </div>
+
+            <div class="bottom-spacer"></div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item tab-nav" aria-label="Home">
+                <i class="ph ph-house"></i>
+            </a>
+            <a href="messages.html" class="nav-item tab-nav" aria-label="Chat">
+                <i class="ph ph-chat-circle"></i>
+            </a>
+            <a href="search.html" class="nav-item tab-nav active" aria-label="Search">
+                <i class="ph ph-magnifying-glass"></i>
+            </a>
+            <a href="your_clubs.html" class="nav-item tab-nav" aria-label="Calendar">
+                <i class="ph ph-calendar-blank"></i>
+            </a>
+            <a href="edit_profile.html" class="nav-item tab-nav" aria-label="Profile">
+                <i class="ph ph-user"></i>
+            </a>
+        </nav>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
