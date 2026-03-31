@@ -123,12 +123,81 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ----------------------------------------------------
+    // Save Class to LocalStorage Logic
+    // ----------------------------------------------------
+    const addCourseBtns = document.querySelectorAll('.add-course-btn');
+    if (addCourseBtns.length > 0) {
+        addCourseBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const btnIcon = btn.querySelector('i');
+                
+                // Visual feedback
+                if (btnIcon && btnIcon.classList.contains('ph-plus')) {
+                    btnIcon.classList.replace('ph-plus', 'ph-check');
+                    btn.classList.add('added'); // optional for styling
+                    // Directly apply style since we might not have 'added' class defined
+                    btn.style.backgroundColor = 'var(--color-red)';
+                    btnIcon.style.color = 'var(--color-white)';
+                    
+                    // Create course object
+                    const courseData = {
+                        code: btn.getAttribute('data-code'),
+                        title: btn.getAttribute('data-title'),
+                        time: btn.getAttribute('data-time'),
+                        location: btn.getAttribute('data-location')
+                    };
+                    
+                    // Save to localStorage
+                    let savedClasses = JSON.parse(localStorage.getItem('savedClasses')) || [];
+                    // Avoid duplicates
+                    if (!savedClasses.some(c => c.title === courseData.title)) {
+                        savedClasses.push(courseData);
+                        localStorage.setItem('savedClasses', JSON.stringify(savedClasses));
+                    }
+                }
+            });
+        });
+    }
+
+    // ----------------------------------------------------
+    // Render Saved Classes on For You Page
+    // ----------------------------------------------------
+    const classesListContainer = document.getElementById('your-classes-list');
+    if (classesListContainer) {
+        const savedClasses = JSON.parse(localStorage.getItem('savedClasses')) || [];
+        
+        if (savedClasses.length > 0) {
+            // Clear default classes and render saved ones
+            classesListContainer.innerHTML = '';
+            
+            savedClasses.forEach(course => {
+                const formattedTime = course.time ? course.time.replace(' - ', ' -<br>') : '';
+                const courseHTML = `
+                    <div class="list-item">
+                        <div class="list-item-left">
+                            <h3 class="item-title">${course.title}</h3>
+                            <p class="item-meta">${course.location}</p>
+                        </div>
+                        <div class="list-item-right">
+                            <p class="item-time">${formattedTime}</p>
+                        </div>
+                    </div>
+                `;
+                classesListContainer.insertAdjacentHTML('beforeend', courseHTML);
+            });
+        }
+    }
+
 });
 
 // Toggle Advanced Search Form
 window.toggleAdvancedSearch = function() {
     const form = document.getElementById('advancedSearchForm');
     if (form) {
+        // We use inline style 'display' toggling instead of a CSS utility class because 
+        // the initial 'none' state is hardcoded inline in the HTML to prevent a flash of content on load.
         if (form.style.display === 'none') {
             form.style.display = 'block';
         } else {
