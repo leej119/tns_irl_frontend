@@ -169,13 +169,95 @@
                         <p class="course-instructor">TAUGHT BY: <span class="text-red">MICHAEL SMITH</span></p>
                     </div>
                     <div class="course-card-right">
-                        <button class="add-course-btn" data-code="LTHR 3055" data-title="Acting Shakespeare" data-time="10:00AM - 1:00PM" data-location="ALVIN JOHNSON/J.M. KAPLAN HALL"><i class="ph ph-plus"></i></button>
+                        <button class="add-course-btn" data-desc="Explore classical performance techniques through the works of William Shakespeare." data-code="LTHR 3055" data-title="Acting Shakespeare" data-time="10:00AM - 1:00PM" data-location="ALVIN JOHNSON/J.M. KAPLAN HALL"><i class="ph ph-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Course Item 4 -->
+                <div class="new-course-card">
+                    <div class="course-card-left">
+                        <div class="course-code-box">LCST<br>3230</div>
+                        <div class="course-term-tag">Spring</div>
+                    </div>
+                    <div class="course-card-middle">
+                        <h3 class="course-title">THE ZOMBIE: LIVING AND DEAD LABOR IN MODERNITY</h3>
+                        <p class="course-time">M/W, 2:00PM - 3:40PM</p>
+                        <p class="course-instructor">EUGENE LANG COLLEGE: <span class="text-red">CULTURE & MEDIA</span></p>
+                    </div>
+                    <div class="course-card-right">
+                        <button class="add-course-btn" data-desc="This course investigates the figure of the zombie as a metaphor for labor under modernity, tracing its evolution from Haitian folklore to modern media." data-code="LCST 3230" data-title="The Zombie: Living and Dead Labor in Modernity" data-time="2:00PM - 3:40PM" data-location="UNIVERSITY CENTER"><i class="ph ph-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Course Item 5 -->
+                <div class="new-course-card">
+                    <div class="course-card-left">
+                        <div class="course-code-box">PGHT<br>5744</div>
+                        <div class="course-term-tag">Spring</div>
+                    </div>
+                    <div class="course-card-middle">
+                        <h3 class="course-title">DESIGN AND VISUAL CULTURE OF MODERN JAPAN</h3>
+                        <p class="course-time">Tu/Th, 4:00PM - 5:40PM</p>
+                        <p class="course-instructor">PARSONS SCHOOL OF DESIGN: <span class="text-red">ART & DESIGN HISTORY</span></p>
+                    </div>
+                    <div class="course-card-right">
+                        <button class="add-course-btn" data-desc="An exploration of Japanese visual culture following the Meiji Restoration, analyzing prints, advertising, animation, and fashion." data-code="PGHT 5744" data-title="Design and Visual Culture of Modern Japan" data-time="4:00PM - 5:40PM" data-location="PARSONS 2 W 13TH"><i class="ph ph-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Course Item 6 -->
+                <div class="new-course-card">
+                    <div class="course-card-left">
+                        <div class="course-code-box">LMUS<br>3124</div>
+                        <div class="course-term-tag">Spring</div>
+                    </div>
+                    <div class="course-card-middle">
+                        <h3 class="course-title">MUSIC MORPHOLOGIES</h3>
+                        <p class="course-time">F, 12:00PM - 2:00PM</p>
+                        <p class="course-instructor">EUGENE LANG COLLEGE: <span class="text-red">THE ARTS</span></p>
+                    </div>
+                    <div class="course-card-right">
+                        <button class="add-course-btn" data-desc="A study of musical form and the perception of musical structure through the lens of cognitive science and aesthetic theory." data-code="LMUS 3124" data-title="Music Morphologies" data-time="12:00PM - 2:00PM" data-location="ARNHOLD HALL"><i class="ph ph-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Course Item 7 -->
+                <div class="new-course-card">
+                    <div class="course-card-left">
+                        <div class="course-code-box">PSAM<br>2702</div>
+                        <div class="course-term-tag">Spring</div>
+                    </div>
+                    <div class="course-card-middle">
+                        <h3 class="course-title">CONTEMPORARY BOOK COVER DESIGN</h3>
+                        <p class="course-time">W, 9:00AM - 11:40AM</p>
+                        <p class="course-instructor">PARSONS: <span class="text-red">SCHOOL OF ART, MEDIA, AND TECH</span></p>
+                    </div>
+                    <div class="course-card-right">
+                        <button class="add-course-btn" data-desc="Learn the art of jacket design for publishing, considering everything from typography to physical print constraints." data-code="PSAM 2702" data-title="Contemporary Book Cover Design" data-time="9:00AM - 11:40AM" data-location="6 EAST 16TH STREET - ROOM 401"><i class="ph ph-plus"></i></button>
                     </div>
                 </div>
             </div>
 
             <div class="bottom-spacer"></div>
         </main>
+
+        <!-- Course Detail Modal -->
+        <div id="course-detail-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <button class="close-modal-btn" id="close-course-modal"><i class="ph ph-x"></i></button>
+                <div class="modal-header">
+                    <span id="modal-course-code" class="modal-code"></span>
+                    <span class="modal-term">Spring</span>
+                </div>
+                <h3 id="modal-course-title" class="modal-title"></h3>
+                <p id="modal-course-time" class="modal-time"><i class="ph ph-clock"></i> <span></span></p>
+                <p id="modal-course-location" class="modal-location"><i class="ph ph-map-pin"></i> <span></span></p>
+                <div class="modal-desc">
+                    <p id="modal-course-desc"></p>
+                </div>
+                <button class="join-btn modal-add-btn" id="modal-add-btn" style="width: 100%; text-align: center;">ADD TO YOUR CLASSES</button>
+            </div>
+        </div>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">

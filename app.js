@@ -190,6 +190,134 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Join Club Logic
+    const joinBtns = document.querySelectorAll('.join-btn:not(.modal-add-btn)');
+    if (joinBtns.length > 0) {
+        // Pre-check if already joined
+        let savedClubs = JSON.parse(localStorage.getItem('savedClubs')) || [];
+        joinBtns.forEach(btn => {
+            const title = btn.getAttribute('data-title');
+            if (savedClubs.some(c => c.title === title)) {
+                btn.classList.add('joined');
+                btn.textContent = 'Joined';
+            }
+            
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (btn.classList.contains('joined')) return; // Already joined
+                
+                btn.classList.add('joined');
+                btn.textContent = 'Joined';
+                btn.style.backgroundColor = 'var(--color-grey-mid)';
+                btn.style.color = 'var(--color-black)';
+                
+                const clubData = {
+                    title: btn.getAttribute('data-title'),
+                    location: btn.getAttribute('data-location'),
+                    members: btn.getAttribute('data-members')
+                };
+                
+                let saved = JSON.parse(localStorage.getItem('savedClubs')) || [];
+                if (!saved.some(c => c.title === clubData.title)) {
+                    saved.push(clubData);
+                    localStorage.setItem('savedClubs', JSON.stringify(saved));
+                }
+            });
+        });
+    }
+
+    // Render Saved Clubs on For You Page
+    const clubsListContainer = document.getElementById('your-clubs-list');
+    if (clubsListContainer) {
+        const savedClubs = JSON.parse(localStorage.getItem('savedClubs')) || [];
+        if (savedClubs.length > 0) {
+            clubsListContainer.innerHTML = '';
+            savedClubs.forEach(club => {
+                const clubHTML = `
+                    <div class="list-item">
+                        <div class="list-item-left">
+                            <h3 class="item-title">${club.title}</h3>
+                            <p class="item-meta">${club.location}</p>
+                        </div>
+                        <div class="list-item-right">
+                            <p class="item-time">Joined</p>
+                        </div>
+                    </div>
+                `;
+                clubsListContainer.insertAdjacentHTML('beforeend', clubHTML);
+            });
+        }
+    }
+
+    // Modal Variables
+    const modal = document.getElementById('course-detail-modal');
+    const closeBtn = document.getElementById('close-course-modal');
+    const modalAddBtn = document.getElementById('modal-add-btn');
+
+    if (modal) {
+        const courseCards = document.querySelectorAll('.new-course-card');
+        courseCards.forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (e) => {
+                // Ignore if clicked on add btn specifically
+                if (e.target.closest('.add-course-btn')) return;
+
+                const addBtn = card.querySelector('.add-course-btn');
+                if (!addBtn) return;
+
+                const codeRaw = card.querySelector('.course-code-box').innerHTML.replace('<br>', ' ');
+                const title = addBtn.getAttribute('data-title');
+                const time = addBtn.getAttribute('data-time');
+                const location = addBtn.getAttribute('data-location');
+                const desc = addBtn.getAttribute('data-desc') || 'A comprehensive course exploring the primary themes and methods related to this subject.';
+
+                document.getElementById('modal-course-code').textContent = codeRaw;
+                document.getElementById('modal-course-title').textContent = title;
+                document.querySelector('#modal-course-time span').textContent = time;
+                document.querySelector('#modal-course-location span').textContent = location;
+                document.getElementById('modal-course-desc').textContent = desc;
+                
+                // Add button pass-through info
+                modalAddBtn.setAttribute('data-code', codeRaw);
+                modalAddBtn.setAttribute('data-title', title);
+                modalAddBtn.setAttribute('data-time', time);
+                modalAddBtn.setAttribute('data-location', location);
+                
+                modal.classList.remove('hidden');
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+        }
+
+        // Add from modal
+        if (modalAddBtn) {
+            modalAddBtn.addEventListener('click', () => {
+                const courseData = {
+                    code: modalAddBtn.getAttribute('data-code'),
+                    title: modalAddBtn.getAttribute('data-title'),
+                    time: modalAddBtn.getAttribute('data-time'),
+                    location: modalAddBtn.getAttribute('data-location')
+                };
+                let savedClasses = JSON.parse(localStorage.getItem('savedClasses')) || [];
+                if (!savedClasses.some(c => c.title === courseData.title)) {
+                    savedClasses.push(courseData);
+                    localStorage.setItem('savedClasses', JSON.stringify(savedClasses));
+                }
+                modalAddBtn.textContent = 'ADDED!';
+                modalAddBtn.classList.add('joined');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modalAddBtn.textContent = 'ADD TO YOUR CLASSES';
+                    modalAddBtn.classList.remove('joined');
+                }, 1000);
+            });
+        }
+    }
+
 });
 
 // Toggle Advanced Search Form

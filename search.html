@@ -26,79 +26,73 @@
         </header>
 
         <!-- Main Content Scrollable -->
-        <main class="content-scroll bg-white" style="padding: 0;">
-            
-            <!-- Hero Banner -->
-            <div class="event-hero-banner">
-                <div class="hero-top-bar">
-                    <div class="hero-left-info text-red">
-                        <p class="font-bold" style="font-weight: 800;">Starr Foundation Hall</p>
-                        <p class="font-bold" style="font-weight: 800;">63 5th Ave</p>
-                    </div>
-                    <div class="hero-right-info text-red" style="text-align: right;">
-                        <p class="font-bold" style="font-weight: 800;">FEBRUARY 12</p>
-                        <p class="font-bold" style="font-weight: 800;">6-8PM</p>
-                    </div>
-                    <button class="hero-close-btn" onclick="window.history.back()"><i class="ph-fill ph-x-circle text-black" style="color: black;"></i></button>
+        <main class="content-scroll">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="ph ph-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search events..." class="search-input">
                 </div>
+            </div>
 
-                <h1 class="hero-massive-title text-red">Heels on the ground: a look at fashion and sustainability's future</h1>
-
-                <div class="hero-bottom-bar">
-                    <div class="hero-moderators">
-                        <p class="mod-title" style="font-weight: 600;">Moderators</p>
-                        <div class="mod-list">
-                            <div class="mod-person">
-                                <span class="mod-name">Tiffany Pek</span>
-                                <span class="mod-role">PART-TIME FACULTY - PARSONS</span>
-                            </div>
-                            <div class="mod-person">
-                                <span class="mod-name">Devon Rufo</span>
-                                <span class="mod-role">PARTNER - REFRAME PARTNERS</span>
-                            </div>
+            <!-- All Events List -->
+            <section class="section">
+                <!-- Event 1 -->
+                <button class="section-header-btn" style="border-bottom: none; text-align: left; width: 100%;" onclick="window.location.href='event_detail.html'">
+                    <div class="event-card">
+                        <div class="event-info">
+                            <h3 class="event-title">Heels on the ground: a look at fashion and sustainability</h3>
+                            <p class="event-meta">STARR FOUNDATION HALL</p>
+                            <p class="event-time" style="color: var(--color-red); margin-top: 4px;">Lecture & Panel Discussion</p>
+                            <p class="event-time">Feb 12 • 6:00 PM</p>
+                        </div>
+                        <div class="event-image placeholder-img-1" style="background-color: var(--color-red);">
+                            <span class="graphic-text" style="color: white;">FASH<br>ION<br>FUT<br>URE</span>
                         </div>
                     </div>
-                    <div class="hero-arrow">
-                        <i class="ph ph-arrow-up-right text-red" style="stroke-width: 20px;"></i>
+                </button>
+
+                <!-- Event 2 -->
+                <button class="section-header-btn" style="border-bottom: none; text-align: left; width: 100%;">
+                    <div class="event-card">
+                        <div class="event-info">
+                            <h3 class="event-title">NSSR Research Methods Workshop</h3>
+                            <p class="event-meta">6 EAST 16TH STREET</p>
+                            <p class="event-time" style="color: var(--color-red); margin-top: 4px;">Workshop & Training</p>
+                            <p class="event-time">Mar 5 • 3:00 PM</p>
+                        </div>
+                        <div class="event-image placeholder-img-2"></div>
                     </div>
-                </div>
-            </div>
+                </button>
 
-            <!-- Image Strip Carousel -->
-            <div class="hero-image-strip">
-                <div class="speaker-img placeholder-img-2"></div>
-                <div class="speaker-img placeholder-img-2"></div>
-                <div class="speaker-img placeholder-img-2"></div>
-                <div class="speaker-img placeholder-img-2"></div>
-                <div class="carousel-dots">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                </div>
-            </div>
+                <!-- Event 3 -->
+                <button class="section-header-btn" style="border-bottom: none; text-align: left; width: 100%;">
+                    <div class="event-card">
+                        <div class="event-info">
+                            <h3 class="event-title">Documentary: Voices of the Future</h3>
+                            <p class="event-meta">TISHMAN AUDITORIUM</p>
+                            <p class="event-time" style="color: var(--color-red); margin-top: 4px;">Film & Media Screening</p>
+                            <p class="event-time">Apr 10 • 7:00 PM</p>
+                        </div>
+                        <div class="event-image placeholder-img-1">
+                            <span class="graphic-text">DOC<br>FILM</span>
+                        </div>
+                    </div>
+                </button>
 
-            <!-- Content details -->
-            <div class="event-details-content">
-                <h1 class="event-main-title">HEELS ON THE GROUND: A LOOK AT FASHION AND SUSTAINABILITY'S FUTURE</h1>
-
-                <div class="event-info-row border-bottom">
-                    <div class="info-label">Location</div>
-                    <div class="info-value">Starr Foundation Hall <i class="ph ph-arrow-up-right text-red" style="font-weight: bold;"></i></div>
-                </div>
-
-                <div class="event-info-row border-bottom">
-                    <div class="info-label">Date</div>
-                    <div class="info-value">February 12, 2026, 6:00PM to 8:00PM</div>
-                </div>
-
-                <div class="event-info-row">
-                    <div class="info-label">Description</div>
-                </div>
-                
-                <div class="event-description">
-                    <p>The fashion industry is navigating one of its most transformative periods in decades. From shifting definitions of sustainability to the disruptive rise of artificial intelligence, the rules that once guided fashion's relationship with people and the planet are rapidly evolving.</p>
-                    <p>This conversation brings together industry veterans and innovators who are directly shaping the intersection of fashion, sustainability, and technology. Together, they will...</p>
-                </div>
-            </div>
+                <!-- Event 4 -->
+                <button class="section-header-btn" style="border-bottom: none; text-align: left; width: 100%;">
+                    <div class="event-card">
+                        <div class="event-info">
+                            <h3 class="event-title">Author Reading: Modern Political Movements</h3>
+                            <p class="event-meta">UNIVERSITY CENTER</p>
+                            <p class="event-time" style="color: var(--color-red); margin-top: 4px;">Author Reading & Discussion</p>
+                            <p class="event-time">May 2 • 5:00 PM</p>
+                        </div>
+                        <div class="event-image placeholder-img-2"></div>
+                    </div>
+                </button>
+            </section>
 
             <div class="bottom-spacer"></div>
         </main>
