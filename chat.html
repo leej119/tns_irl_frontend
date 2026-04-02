@@ -423,13 +423,18 @@
         </nav>
     </div>
 
-    <!-- Script to dynamically load chat name and handle sending messages -->
+       <!-- Script to dynamically load chat name and handle sending messages -->
     <script>
-        // 1. DYNAMIC NAME LOGIC
+        // 1. DYNAMIC NAME LOGIC AND HISTORY CLEANUP
         const urlParams = new URLSearchParams(window.location.search);
         const chatName = urlParams.get('name');
         if (chatName) {
             document.querySelector('.profile-name').textContent = chatName;
+            
+            // Remove pre-existing mock messages for everyone except Tsunemasa
+            if (chatName !== 'Tsunemasa Fujiwara') {
+                document.querySelectorAll('.msg-row').forEach(row => row.remove());
+            }
         }
 
         // 2. CHAT SENDING LOGIC
