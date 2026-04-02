@@ -424,6 +424,14 @@
         </nav>
     </div>
 
+    <!-- Script to dynamically load chat name -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const chatName = urlParams.get('name');
+        if (chatName) {
+            document.querySelector('.profile-name').textContent = chatName;
+        }
+    </script>
 </body>
 
 </html>
