@@ -110,6 +110,7 @@
             flex-direction: column;
             padding: 24px 20px;
             background-color: #fff;
+            scroll-behavior: smooth; /* Smooth scrolling for new messages */
         }
 
 
@@ -152,7 +153,7 @@
             line-height: 1.5;
             padding: 16px 20px;
             border-radius: 20px;
-            border-top-right-radius: 4px;
+            border-top-right-radius: 4px; /* Default for the first one under the grid */
             max-width: 90%;
             word-wrap: break-word;
             z-index: 2;
@@ -300,8 +301,6 @@
                     <i class="ph ph-squares-four"></i>
                 </button>
                 <div class="header-profile-center">
-                    <!-- Using placeholder resembling screen 2 avatar placeholder -->
-                    <img src="https://i.pravatar.cc/150?img=43" alt="OOMFS" class="profile-img">
                     <span class="profile-name">OOMFS</span>
                 </div>
                 <!-- Letter icon matching screenshot 2 -->
@@ -424,13 +423,57 @@
         </nav>
     </div>
 
-    <!-- Script to dynamically load chat name -->
+    <!-- Script to dynamically load chat name and handle sending messages -->
     <script>
+        // 1. DYNAMIC NAME LOGIC
         const urlParams = new URLSearchParams(window.location.search);
         const chatName = urlParams.get('name');
         if (chatName) {
             document.querySelector('.profile-name').textContent = chatName;
         }
+
+        // 2. CHAT SENDING LOGIC
+        const chatInput = document.querySelector('.chat-input');
+        const sendBtn = document.querySelector('.send-btn');
+        const chatContent = document.querySelector('.chat-content');
+        const bottomSpacer = document.querySelector('.bottom-spacer');
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return; // Ignore empty messages
+
+            // Create the wrapper for right-aligned message
+            const msgRow = document.createElement('div');
+            msgRow.className = 'msg-row right';
+
+            // Create the black text bubble
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble-text';
+            bubble.textContent = text;
+            
+            // Adjust border radius so it looks like a clean bubble (no top-right flattening since there's no grid attached above it)
+            bubble.style.borderRadius = '20px 20px 4px 20px';
+
+            // Assemble and insert
+            msgRow.appendChild(bubble);
+            chatContent.insertBefore(msgRow, bottomSpacer);
+
+            // Clear input text
+            chatInput.value = '';
+
+            // Automatically scroll to the very bottom to see the new message
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+
+        // Trigger on Mouse Click the Send Button
+        sendBtn.addEventListener('click', sendMessage);
+
+        // Trigger on Pressing 'Enter' or 'Return' on the Keyboard
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 
