@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Invite Friends</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .invite-form { display: flex; flex-direction: column; gap: var(--spacing-md); }
+        .description-text { color: var(--color-grey-dark); font-size: 0.9rem; margin-bottom: var(--spacing-sm); }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="app-container" style="background:var(--color-white);">
+        <header class="app-header">
+            <button class="icon-btn" onclick="window.history.back()">
+                <i class="ph ph-arrow-left"></i>
+            </button>
+            <h2 style="font-size: 1.2rem; font-weight: 800; flex:1; text-align:center;">Invite Friends</h2>
+            <div style="width: 24px;"></div> <!-- spacer -->
+        </header>
+
+        <main class="content-scroll" style="padding: var(--spacing-md);">
+            <p class="description-text">Enter a username or email to invite them to this event. You must provide at least one.</p>
+            <form id="invite-form" class="invite-form">
+                
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" id="invite-name" class="form-input" placeholder="e.g. jdoe23">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Friend's Email Address</label>
+                    <input type="email" id="invite-email" class="form-input" placeholder="e.g. jane@newschool.edu">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Personal Message (Optional)</label>
+                    <textarea id="invite-msg" class="form-input" rows="4" placeholder="Hey, are you going to this?"></textarea>
+                </div>
+
+                <div id="error-msg" style="color: var(--color-red); font-weight: 600; font-size: 0.85rem; display: none;">
+                    * Please enter a Username or an Email address.
+                </div>
+
+                <div style="margin-top: var(--spacing-md);">
+                    <button type="submit" class="primary-btn-red" style="width: 100%; border-radius: 20px; padding: 12px; border:none; background: var(--color-red); color: white; font-weight:bold; font-size:1rem; cursor:pointer;">SEND INVITE</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <!-- Validation Script -->
+    <script>
+        document.getElementById('invite-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const nameField = document.getElementById('invite-name').value.trim();
+            const emailField = document.getElementById('invite-email').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            if (!nameField && !emailField) {
+                // Show inline error
+                errorMsg.style.display = 'block';
+            } else {
+                // Clear error, move to success
+                errorMsg.style.display = 'none';
+                window.location.href = 'invite_success.html';
+            }
+        });
+    </script>
+</body>
+</html>

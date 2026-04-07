@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Create Event</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .create-event-form { display: flex; flex-direction: column; gap: var(--spacing-md); }
+        .image-upload-box {
+            background: var(--color-grey-light);
+            border: 2px dashed var(--color-grey-mid);
+            border-radius: 8px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 150px; cursor: pointer; color: var(--color-grey-dark); overflow: hidden; position: relative;
+        }
+        .image-upload-box img { width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; }
+        .hidden-file-input { display: none; }
+        .visibility-options { display: flex; gap: var(--spacing-sm); }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="app-container" style="background: var(--color-white);">
+        <header class="app-header">
+            <button class="icon-btn" onclick="window.history.back()">
+                <i class="ph ph-arrow-left"></i>
+            </button>
+            <h2 style="font-size: 1.2rem; font-weight: 800; flex:1; text-align:center;">Create Event</h2>
+            <div style="width: 24px;"></div> <!-- spacer -->
+        </header>
+
+        <main class="content-scroll">
+            <form id="create-event-form" class="create-event-form">
+                
+                <div class="image-upload-box" id="image-upload-box">
+                    <i class="ph ph-image" style="font-size: 2rem; margin-bottom: 8px; pointer-events: none;"></i>
+                    <span style="font-weight: 600; pointer-events: none;">Tap to upload header image</span>
+                    <input type="file" id="event-image-input" class="hidden-file-input" accept="image/*">
+                    <img id="image-preview" src="" style="display:none; pointer-events: none;" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Event Title</label>
+                    <input type="text" id="ce-title" class="form-input" required placeholder="e.g. Park Picnic">
+                </div>
+
+                <div class="form-group" style="display:flex; gap:16px;">
+                    <div style="flex:1;">
+                        <label class="form-label">Date</label>
+                        <input type="date" id="ce-date" class="form-input" required style="width:100%;">
+                    </div>
+                    <div style="flex:1;">
+                        <label class="form-label">Time</label>
+                        <input type="text" id="ce-time" class="form-input" required placeholder="e.g. 2:00 PM" style="width:100%;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Location / Description</label>
+                    <textarea id="ce-desc" class="form-input" rows="3" placeholder="Where is it and what's happening?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Visibility</label>
+                    <div class="visibility-options">
+                        <label class="radio-option" style="flex:1;">
+                            <span class="radio-label">Public Feed</span>
+                            <input type="radio" name="ce_visibility" value="public" checked>
+                            <span class="custom-radio"></span>
+                        </label>
+                        <label class="radio-option" style="flex:1;">
+                            <span class="radio-label">Private</span>
+                            <input type="radio" name="ce_visibility" value="private">
+                            <span class="custom-radio"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--spacing-lg);">
+                    <button type="submit" class="primary-btn-red" style="width: 100%; border-radius: 20px; padding: 12px; border:none; background: var(--color-red); color: white; font-weight:bold; font-size:1rem; cursor:pointer;">PUBLISH EVENT</button>
+                </div>
+            </form>
+            <div class="bottom-spacer" style="height: 100px;"></div>
+        </main>
+    </div>
+
+    <!-- Ensure app.js is loaded so generic DOM content is evaluated -->
+    <script src="app.js"></script>
+    <script>
+        const imageUploadBox = document.getElementById('image-upload-box');
+        const eventImageInput = document.getElementById('event-image-input');
+        const imagePreview = document.getElementById('image-preview');
+        let base64Image = null;
+
+        imageUploadBox.addEventListener('click', () => {
+            eventImageInput.click();
+        });
+
+        eventImageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    base64Image = evt.target.result;
+                    imagePreview.src = base64Image;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('create-event-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const title = document.getElementById('ce-title').value;
+            const date = document.getElementById('ce-date').value;
+            const time = document.getElementById('ce-time').value;
+            const desc = document.getElementById('ce-desc').value;
+            const visibility = document.querySelector('input[name="ce_visibility"]:checked').value;
+
+            // The data structure logic is handled inside app.js but we append directly
+            let events = JSON.parse(localStorage.getItem('tns_events_v3') || '[]');
+
+            events.push({
+                date: date,
+                title: title,
+                time: time,
+                desc: desc,
+                image: base64Image,
+                isPublic: visibility === 'public'
+            });
+
+            localStorage.setItem('tns_events_v3', JSON.stringify(events));
+
+            window.location.href = 'published.html';
+        });
+    </script>
+</body>
+</html>

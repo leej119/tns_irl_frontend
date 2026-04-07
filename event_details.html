@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Event Details</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-img-container {
+            width: 100%;
+            height: 250px;
+            background-color: var(--color-grey-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ed-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-black);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+        .ed-meta-block {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-grey-dark);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .ed-meta-icon {
+            font-size: 1.2rem;
+            color: var(--color-red);
+            margin-top: 2px;
+        }
+        .ed-desc-section {
+            background-color: var(--color-grey-light);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            margin-bottom: var(--spacing-lg);
+        }
+        .ed-section-label {
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: var(--color-black);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+        .ed-desc-text {
+            color: var(--color-black);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="app-container" style="background:var(--color-white);">
+        <header class="app-header">
+            <button class="icon-btn" onclick="window.history.back()">
+                <i class="ph ph-arrow-left"></i>
+            </button>
+            <h2 style="font-size: 1.2rem; font-weight: 800; flex:1; text-align:center;">Event Details</h2>
+            <div style="width: 24px;"></div> <!-- spacer -->
+        </header>
+
+        <main class="content-scroll" style="padding: var(--spacing-md);" id="main-content">
+            <!-- Dynamic Content Injected Here -->
+        </main>
+    </div>
+
+    <!-- Script to populate data -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeEventData = localStorage.getItem('tns_active_event');
+            const mainContent = document.getElementById('main-content');
+
+            if (!activeEventData) {
+                mainContent.innerHTML = `
+                    <div style="text-align:center; padding: 40px 20px;">
+                        <i class="ph ph-warning-circle" style="font-size: 3rem; color: var(--color-red); margin-bottom: 16px;"></i>
+                        <h3>Event not found</h3>
+                        <p style="color:var(--color-grey-dark); margin-top:8px;">Sorry, we couldn't load the details for this event.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const evt = JSON.parse(activeEventData);
+
+            let dateDisplay = evt.date;
+            try {
+                const [ey, em, ed] = evt.date.split('-');
+                if (ey && em && ed) {
+                    const eventDateObj = new Date(ey, em - 1, ed);
+                    const monthName = eventDateObj.toLocaleString('default', { month: 'long' });
+                    const dayOfWeek = eventDateObj.toLocaleString('default', { weekday: 'long' });
+                    dateDisplay = `${dayOfWeek}, ${monthName} ${parseInt(ed)}, ${ey}`;
+                }
+            } catch(e) {}
+
+            let imageHtml = '';
+            if (evt.image) {
+                imageHtml = `<img src="${evt.image}">`;
+            } else if (evt.placeholderClass) {
+                let internalSpan = evt.isSpecialGraphic ? `<span class="graphic-text">NOT<br>GEN<br>ERA<br>TED</span>` : '';
+                imageHtml = internalSpan;
+            } else {
+                imageHtml = `<i class="ph ph-calendar-blank" style="font-size: 4rem; opacity: 0.2; color: var(--color-grey-dark);"></i>`;
+            }
+
+            let heroClass = "hero-img-container";
+            if (!evt.image && evt.placeholderClass) {
+                heroClass += " " + evt.placeholderClass;
+            }
+
+            mainContent.innerHTML = `
+                <div class="${heroClass}">
+                    ${imageHtml}
+                </div>
+
+                <h1 class="ed-title">${evt.title}</h1>
+
+                <div class="ed-meta-block">
+                    <i class="ph-fill ph-calendar-blank ed-meta-icon"></i>
+                    <div>
+                        <div style="color: var(--color-black);">${dateDisplay}</div>
+                        <div>${evt.time}</div>
+                    </div>
+                </div>
+
+                ${evt.isPublic !== undefined ? `
+                <div class="ed-meta-block" style="margin-top: -8px;">
+                     <i class="${evt.isPublic ? 'ph-fill ph-globe' : 'ph-fill ph-lock-key'} ed-meta-icon"></i>
+                     <div>${evt.isPublic ? 'Public Event' : 'Private Calendar Session'}</div>
+                </div>` : ''}
+
+                <div class="ed-desc-section">
+                    <div class="ed-section-label">Details & Location</div>
+                    <div class="ed-desc-text">${evt.desc ? evt.desc : 'No additional details provided.'}</div>
+                </div>
+
+                <div style="margin-top: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                    <button id="btn-invite" class="primary-btn-red" style="width: 100%; border-radius: 20px; padding: 12px; border:none; background: var(--color-red); color: white; font-weight:bold; font-size:1rem; cursor:pointer;" onclick="window.location.href='invite_users.html'">INVITE FRIENDS</button>
+                    <button id="btn-delete" class="primary-btn-red" style="width: 100%; border-radius: 20px; padding: 12px; border:2px solid var(--color-red); background: transparent; color: var(--color-red); font-weight:bold; font-size:1rem; cursor:pointer;">DELETE EVENT</button>
+                </div>
+            `;
+
+            // Delete Event Logic
+            const deleteBtn = document.getElementById('btn-delete');
+            if (deleteBtn) {
+                deleteBtn.addEventListener('click', () => {
+                    const confirmDelete = confirm('Are you sure you want to delete this event?');
+                    if (confirmDelete) {
+                        let events = JSON.parse(localStorage.getItem('tns_events_v3') || '[]');
+                        // Filter out the selected event by matching core properties
+                        const updatedEvents = events.filter(e => !(e.title === evt.title && e.date === evt.date && e.time === evt.time && e.desc === evt.desc));
+                        localStorage.setItem('tns_events_v3', JSON.stringify(updatedEvents));
+                        
+                        // Clear active event and navigate home
+                        localStorage.removeItem('tns_active_event');
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
