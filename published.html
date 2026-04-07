@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The New School IRL - Published</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .published-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: var(--spacing-lg);
+            text-align: center;
+            background-color: var(--color-white);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .success-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .success-text {
+            color: var(--color-grey-dark);
+            margin-bottom: var(--spacing-xl);
+            max-width: 300px;
+        }
+
+        .btn-return {
+            background-color: var(--color-red);
+            color: white;
+            font-weight: 800;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            width: 100%;
+            max-width: 300px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-return:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container" style="background:var(--color-white);">
+        <main class="published-container">
+            <i class="ph-fill ph-check-circle success-icon"></i>
+            <h1 class="success-title">Success!</h1>
+            <p class="success-text">Your event has been saved and is now visible to the selected audience.</p>
+            <a href="index.html" class="btn-return">Return to Home Page</a>
+        </main>
+    </div>
+</body>
+
+</html>

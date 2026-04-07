@@ -33,231 +33,86 @@
 
         <!-- Main Content Scrollable -->
         <main class="content-scroll">
-            <!-- Quick Links -->
-            <section class="section quick-links-section">
-                <h2 class="section-title text-red text-center" style="margin-bottom: var(--spacing-md);">QUICK LINKS</h2>
-                <div class="quick-links-tabs">
-                    <a href="index.html" class="tab-link">FOR YOU</a>
-                    <a href="find_club.html" class="tab-link">FIND CLUB</a>
-                    <a href="browse_classes.html" class="tab-link active">BROWSE CLASSES</a>
-                    <a href="#" class="tab-link">CREATE EVENT</a>
-                </div>
-            </section>
+            <!-- Course Catalog Header -->
+            <h1 class="page-title-massive text-red text-center"
+                style="margin-top: 10px; font-size: 2.2rem; letter-spacing: 0px;">COURSE CATALOG</h1>
+            <p class="text-center" style="font-size: 0.8rem; font-weight: 700; margin-bottom: 20px;">
+                <i class="ph-fill ph-question-circle" style="color: var(--color-red);"></i> About the Course Catalog
+            </p>
 
-            <!-- New Search Area -->
-            <div class="browse-search-wrapper">
-                <div class="browse-search-box">
-                    <input type="text" class="browse-search-input" placeholder="Search course, CRN, department & more">
-                    <button class="browse-search-btn"><i class="ph ph-magnifying-glass"></i></button>
+            <!-- Search Area -->
+            <div class="catalog-search-container">
+                <input type="text" class="catalog-search-input" value="thesis writing" placeholder="Search courses...">
+                <div class="catalog-search-actions">
+                    <button class="refine-btn">Refine By... <i class="ph ph-caret-down"></i></button>
+                    <button class="search-submit-btn"><i class="ph ph-magnifying-glass"></i></button>
                 </div>
-                <p class="advanced-search-toggle">or use <span class="text-red font-bold" onclick="toggleAdvancedSearch()" style="cursor:pointer">Advanced Search</span></p>
             </div>
 
-            <!-- Advanced Search Form (hidden by default) -->
-            <div id="advancedSearchForm" class="advanced-search-form" style="display: none;">
-                <!-- Advanced search content based on Figma screens -->
-                <div class="filter-section">
-                    <h3 class="filter-title">COLLEGES</h3>
-                    <div class="filter-dropdown">
-                        <select class="filter-select">
-                            <option value="">0 items</option>
-                            <option value="performing">College of Performing Arts</option>
-                            <option value="lang">Eugene Lang College of Liberal Arts</option>
-                            <option value="parsons">Parsons School of Design</option>
-                            <option value="social">The New School for Social Research</option>
-                            <option value="paris">Parsons Paris</option>
-                            <option value="university">University</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h3 class="filter-title">TERM</h3>
-                    <div class="filter-options">
-                        <label class="radio-label"><input type="radio" name="term"> <span class="radio-custom"></span>Winter Break Courses</label>
-                        <label class="radio-label"><input type="radio" name="term"> <span class="radio-custom"></span>Fall 2024</label>
-                        <label class="radio-label"><input type="radio" name="term"> <span class="radio-custom"></span>Summer 2025</label>
-                        <label class="radio-label"><input type="radio" name="term"> <span class="radio-custom"></span>Spring 2026</label>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h3 class="filter-title">CAMPUS</h3>
-                    <div class="filter-options">
-                        <label class="radio-label"><input type="radio" name="campus"> <span class="radio-custom"></span>New York City</label>
-                        <label class="radio-label"><input type="radio" name="campus"> <span class="radio-custom"></span>Paris</label>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h3 class="filter-title">MODALITY</h3>
-                    <div class="filter-options">
-                        <label class="radio-label"><input type="radio" name="modality"> <span class="radio-custom"></span>In-Person</label>
-                        <label class="radio-label"><input type="radio" name="modality"> <span class="radio-custom"></span>Hybrid</label>
-                        <label class="radio-label"><input type="radio" name="modality"> <span class="radio-custom"></span>Online (Synchronous)</label>
-                        <label class="radio-label"><input type="radio" name="modality"> <span class="radio-custom"></span>Online (Asynchronous)</label>
-                    </div>
-                </div>
-                
-                <div class="filter-section">
-                    <h3 class="filter-title">LEVEL</h3>
-                    <div class="filter-options">
-                        <label class="radio-label"><input type="radio" name="level"> <span class="radio-custom"></span>All Levels</label>
-                        <label class="radio-label"><input type="radio" name="level"> <span class="radio-custom"></span>Undergraduate</label>
-                        <label class="radio-label"><input type="radio" name="level"> <span class="radio-custom"></span>Graduate</label>
-                        <label class="radio-label"><input type="radio" name="level"> <span class="radio-custom"></span>Grad Course Open to Undergraduates</label>
-                        <label class="radio-label"><input type="radio" name="level"> <span class="radio-custom"></span>Visiting Undergraduate</label>
-                        <label class="radio-label"><input type="radio" name="level"> <span class="radio-custom"></span>Visiting Graduate</label>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h3 class="filter-title">STATUS</h3>
-                    <div class="filter-options">
-                        <label class="radio-label"><input type="radio" name="status"> <span class="radio-custom"></span>Open</label>
-                        <label class="radio-label"><input type="radio" name="status"> <span class="radio-custom"></span>Closed</label>
-                        <label class="radio-label"><input type="radio" name="status"> <span class="radio-custom"></span>Waitlist</label>
-                    </div>
-                </div>
-
-                <button class="filter-apply-btn" onclick="toggleAdvancedSearch()">FILTER</button>
+            <!-- Mobile Filter Summary -->
+            <div class="catalog-filter-summary">
+                <button class="show-filters-btn"><i class="ph-fill ph-folder"></i> Show Additional Filters</button>
             </div>
 
-            <!-- New Course List -->
-            <div class="new-course-list" id="courseListArea">
-                <!-- Course Item 1 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">LLSJ<br>2163</div>
-                        <div class="course-term-tag">Spring</div>
-                    </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">NEW APPROACHES TO SPORTS JOURNALISM</h3>
-                        <p class="course-time">W/M, 10:00AM - 11:40AM</p>
-                        <p class="course-instructor">TAUGHT BY: <span class="text-red">DANIEL MOORE</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-code="LLSJ 2163" data-title="New Approaches to Sports Journalism" data-time="10:00AM - 11:40AM" data-location="6 EAST 16TH STREET - ROOM 600"><i class="ph ph-plus"></i></button>
-                    </div>
+            <!-- Results Header -->
+            <div class="catalog-results-header">
+                <button class="reset-search-btn"><i class="ph ph-arrow-counter-clockwise"></i> Reset Search</button>
+                <div class="results-info">
+                    <span class="results-count">492 Courses Found</span>
+                    <button class="bookmark-btn"><i class="ph-fill ph-bookmark" style="color: var(--color-red);"></i>
+                        Bookmark This Search</button>
                 </div>
-                
-                <!-- Course Item 2 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">LLSJ<br>3021</div>
-                        <div class="course-term-tag">Spring</div>
+            </div>
+
+            <!-- Course Cards List -->
+            <div class="course-list">
+
+                <!-- Card 1 -->
+                <div class="course-catalog-card">
+                    <div class="course-card-header">
+                        <span class="course-id">APFS5021</span>
+                        <a href="#" class="course-link-action"><i class="ph ph-arrow-square-out"></i> Course Page</a>
                     </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">TRANSMEDIA</h3>
-                        <p class="course-time">Tu/Th, 1:00PM - 2:40PM</p>
-                        <p class="course-instructor">TAUGHT BY: <span class="text-red">SARAH JENKINS</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-code="LLSJ 3021" data-title="Transmedia" data-time="1:00PM - 2:40PM" data-location="PARSONS 2 W 13TH - ROOM 1111"><i class="ph ph-plus"></i></button>
-                    </div>
-                </div>
-                
-                <!-- Course Item 3 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">LTHR<br>3055</div>
-                        <div class="course-term-tag">Spring</div>
-                    </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">ACTING SHAKESPEARE</h3>
-                        <p class="course-time">F, 10:00AM - 1:00PM</p>
-                        <p class="course-instructor">TAUGHT BY: <span class="text-red">MICHAEL SMITH</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-desc="Explore classical performance techniques through the works of William Shakespeare." data-code="LTHR 3055" data-title="Acting Shakespeare" data-time="10:00AM - 1:00PM" data-location="ALVIN JOHNSON/J.M. KAPLAN HALL"><i class="ph ph-plus"></i></button>
+                    <h3 class="course-catalog-title">Advanced Thesis Preparation</h3>
+                    <div class="course-catalog-details">
+                        <div class="detail-item"><strong>Credits:</strong> 3</div>
+                        <div class="detail-item"><strong>College/School:</strong> Parsons Paris</div>
+                        <div class="detail-item"><strong>Department:</strong> Parsons Paris</div>
                     </div>
                 </div>
 
-                <!-- Course Item 4 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">LCST<br>3230</div>
-                        <div class="course-term-tag">Spring</div>
+                <!-- Card 2 -->
+                <div class="course-catalog-card">
+                    <div class="course-card-header">
+                        <span class="course-id">APVS4500</span>
+                        <a href="#" class="course-link-action"><i class="ph ph-arrow-square-out"></i> Course Page</a>
                     </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">THE ZOMBIE: LIVING AND DEAD LABOR IN MODERNITY</h3>
-                        <p class="course-time">M/W, 2:00PM - 3:40PM</p>
-                        <p class="course-instructor">EUGENE LANG COLLEGE: <span class="text-red">CULTURE & MEDIA</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-desc="This course investigates the figure of the zombie as a metaphor for labor under modernity, tracing its evolution from Haitian folklore to modern media." data-code="LCST 3230" data-title="The Zombie: Living and Dead Labor in Modernity" data-time="2:00PM - 3:40PM" data-location="UNIVERSITY CENTER"><i class="ph ph-plus"></i></button>
+                    <h3 class="course-catalog-title">Advanced Research Seminar: Art, Media & Technology</h3>
+                    <div class="course-catalog-details">
+                        <div class="detail-item"><strong>Credits:</strong> 3</div>
+                        <div class="detail-item"><strong>College/School:</strong> Parsons Paris</div>
+                        <div class="detail-item"><strong>Department:</strong> Parsons Paris</div>
                     </div>
                 </div>
 
-                <!-- Course Item 5 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">PGHT<br>5744</div>
-                        <div class="course-term-tag">Spring</div>
+                <!-- Card 3 -->
+                <div class="course-catalog-card">
+                    <div class="course-card-header">
+                        <span class="course-id">GPOL7004</span>
+                        <a href="#" class="course-link-action"><i class="ph ph-arrow-square-out"></i> Course Page</a>
                     </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">DESIGN AND VISUAL CULTURE OF MODERN JAPAN</h3>
-                        <p class="course-time">Tu/Th, 4:00PM - 5:40PM</p>
-                        <p class="course-instructor">PARSONS SCHOOL OF DESIGN: <span class="text-red">ART & DESIGN HISTORY</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-desc="An exploration of Japanese visual culture following the Meiji Restoration, analyzing prints, advertising, animation, and fashion." data-code="PGHT 5744" data-title="Design and Visual Culture of Modern Japan" data-time="4:00PM - 5:40PM" data-location="PARSONS 2 W 13TH"><i class="ph ph-plus"></i></button>
+                    <h3 class="course-catalog-title">Political Research Seminar</h3>
+                    <div class="course-catalog-details">
+                        <div class="detail-item"><strong>Credits:</strong> 0 TO 1.5</div>
+                        <div class="detail-item"><strong>College/School:</strong> New School for Social Research</div>
+                        <div class="detail-item"><strong>Department:</strong> Politics</div>
                     </div>
                 </div>
 
-                <!-- Course Item 6 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">LMUS<br>3124</div>
-                        <div class="course-term-tag">Spring</div>
-                    </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">MUSIC MORPHOLOGIES</h3>
-                        <p class="course-time">F, 12:00PM - 2:00PM</p>
-                        <p class="course-instructor">EUGENE LANG COLLEGE: <span class="text-red">THE ARTS</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-desc="A study of musical form and the perception of musical structure through the lens of cognitive science and aesthetic theory." data-code="LMUS 3124" data-title="Music Morphologies" data-time="12:00PM - 2:00PM" data-location="ARNHOLD HALL"><i class="ph ph-plus"></i></button>
-                    </div>
-                </div>
-
-                <!-- Course Item 7 -->
-                <div class="new-course-card">
-                    <div class="course-card-left">
-                        <div class="course-code-box">PSAM<br>2702</div>
-                        <div class="course-term-tag">Spring</div>
-                    </div>
-                    <div class="course-card-middle">
-                        <h3 class="course-title">CONTEMPORARY BOOK COVER DESIGN</h3>
-                        <p class="course-time">W, 9:00AM - 11:40AM</p>
-                        <p class="course-instructor">PARSONS: <span class="text-red">SCHOOL OF ART, MEDIA, AND TECH</span></p>
-                    </div>
-                    <div class="course-card-right">
-                        <button class="add-course-btn" data-desc="Learn the art of jacket design for publishing, considering everything from typography to physical print constraints." data-code="PSAM 2702" data-title="Contemporary Book Cover Design" data-time="9:00AM - 11:40AM" data-location="6 EAST 16TH STREET - ROOM 401"><i class="ph ph-plus"></i></button>
-                    </div>
-                </div>
             </div>
 
             <div class="bottom-spacer"></div>
         </main>
-
-        <!-- Course Detail Modal -->
-        <div id="course-detail-modal" class="modal-overlay hidden">
-            <div class="modal-content">
-                <button class="close-modal-btn" id="close-course-modal"><i class="ph ph-x"></i></button>
-                <div class="modal-header">
-                    <span id="modal-course-code" class="modal-code"></span>
-                    <span class="modal-term">Spring</span>
-                </div>
-                <h3 id="modal-course-title" class="modal-title"></h3>
-                <p id="modal-course-time" class="modal-time"><i class="ph ph-clock"></i> <span></span></p>
-                <p id="modal-course-location" class="modal-location"><i class="ph ph-map-pin"></i> <span></span></p>
-                <div class="modal-desc">
-                    <p id="modal-course-desc"></p>
-                </div>
-                <button class="join-btn modal-add-btn" id="modal-add-btn" style="width: 100%; text-align: center;">ADD TO YOUR CLASSES</button>
-            </div>
-        </div>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
